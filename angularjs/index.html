@@ -7,17 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="icon" href="images/favicon.ico">
 
     <title>ChickyChef By Q</title>
 
     <!-- CSS -->
     <link href="libs/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="libs/bootstrap/examples/signin/signin.css" rel="stylesheet">
+    <link href="libs/bootstrap/examples/sticky-footer-navbar/sticky-footer-navbar.css" rel="stylesheet">
     <link href="libs/bootstrap/examples/starter-template/starter-template.css" rel="stylesheet">
     <!-- JS -->
     <script src="libs/bootstrap/js/jquery1-11-2.min.js"></script>
     <script src="libs/bootstrap/js/bootstrap.min.js"></script>
-    <script src="libs/bootstrap/js/collapse.js"></script>
     <script src="libs/angular1-3-10.min.js"></script>
     <script src="libs/angular-route.js"></script>
     <script src="libs/ngFacebook.js"></script>
@@ -37,7 +38,7 @@
 
 <body ng-controller="mainCtrl" ng-cloak>
     <!-- navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="navController">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -50,11 +51,28 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li ng-class="{active:isActive('/')}"><a href="#/">Home</a>
+                    <li ng-class="{active:isActive('/')}">
+                        <a href="#/">Home</a>
                     </li>
-                    <li ng-class="{active:isActive('/about')}"><a href="#/about">About</a>
+                    <li ng-class="{active:isActive('/order')}">
+                        <a href="#/order">Order</a>
                     </li>
-                    <li ng-class="{active:isActive('/contact')}"><a href="#/contact">Contact</a>
+                    <li ng-class="{active:isActive('/about')}">
+                        <a href="#/about">About</a>
+                    </li>
+                    <li ng-class="{active:isActive('/contact')}">
+                        <a href="#/contact">Contact</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-click="loginToggle()">
+                        <a href="">
+                            <span ng-if="status" class="glyphicon glyphicon-log-in"></span>
+                            <span ng-if="status">Logout</span>
+                            <span ng-if="!status" class="glyphicon glyphicon-log-out"></span>
+                            <span ng-if="!status">Sign in</span>
+
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -70,7 +88,11 @@
         <div ng-view></div>
 
     </div>
-
+    <footer class="footer">
+        <div class="container" align="center">
+            <p class="text-muted">© Copyright 2015 ChickyChef By Q</p>
+        </div>
+    </footer>
 
 </body>
 

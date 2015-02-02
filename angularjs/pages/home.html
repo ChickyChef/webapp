@@ -8,12 +8,12 @@
             <span ng-if="!status">
             	<h2 class="form-signin-heading">Please sign in</h2>
             </span>
-
-            <button id="login-btn" ng-click="loginToggle()" class="btn btn-lg btn-primary btn-block" type="submit">
-                <span ng-if="status">Logout From Facebook</span>
-                <span ng-if="!status">Login with Facebook</span>
-            </button>
-
+            
+                <button id="login-btn" ng-click="loginToggle()" class="btn btn-lg btn-primary btn-block" type="submit">
+                   <span ng-if="status">Logout From Facebook</span>
+                   <span ng-if="!status">Login with Facebook</span>
+                </button>
+            <!-- onClick="location.href='#/order'" -->
             <span ng-if="status" class="message">
               You are <strong>Logged in</strong> as <em>{{user.first_name}} {{user.last_name}} </em>
             </span>
@@ -21,7 +21,7 @@
               You are <strong>not</strong> logged in.
             </span>
         </form>
-
+        
 
     </div>
     <!-- /container -->
