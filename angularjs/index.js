@@ -1,5 +1,5 @@
   // create the module and name it myApp
-  var myApp = angular.module('myApp', ['ngRoute','ngFacebook']);
+  var myApp = angular.module('myApp', ['ngRoute','ngFacebook','ui.bootstrap','ui.utils']);
 
   // configure our routes
   myApp.config(function($routeProvider,$facebookProvider) {
@@ -63,7 +63,7 @@
         });
       }
     });
-
+    $scope.userid = '850227338356519'
     $scope.loginToggle = function() {
     if ($scope.status) {
         $facebook.logout();
